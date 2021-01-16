@@ -1,10 +1,10 @@
 const ora = require('ora');
 const shell = require('shelljs');
+const transformed = require('../../utils/ascii')()
 const downloadGit = require('download-git-repo');
 const templateURL = 'direct:https://github.com/Jokul518/joker-ui.git';
 const handler = {
     mkdir: function (dirname) {
-        const ora = require('ora');
         const spinner = ora('⏰ download template......');
         spinner.start();
         const _pwd = shell.pwd().stdout;
@@ -19,6 +19,7 @@ const handler = {
             } else {
                 // 下载完成后要将package.json中的项目名等信息替换掉
                 shell.sed('-i', 'joker-ui', dirname, `${_path}/package.json`);
+                console.log(transformed)
             }
         }).catch((err) => {
             console.log('', err);

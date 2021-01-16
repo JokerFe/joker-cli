@@ -1,8 +1,7 @@
 {
   "name": "joker-cli",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.3",
+  "description": "joker-cli脚手架",
   "publishConfig": {
     "access": "public"
   },
