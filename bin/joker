@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+const figlet = require("figlet")
+const Printer = require('@darkobits/lolcatjs').default;
+const prograrm = require("commander")
+const cmdHandler = require("./handler/cmdHandler");
+const ascii = figlet.textSync("J O K E R");
+const transformed = Printer.fromString(ascii);
+
+// 设置joker -v 或joker --version 命令时的输出内容为ascii码
+prograrm.version(transformed, "-v, --version");
+
+// option方法 设置在joker --help时输出的命令提示，默认是有-h的属性
+// prograrm.option("-i, --init", "🐲");
+
+prograrm.usage("<cmd> [env]") // 设置命令
+    .arguments("<cmd> [env]") // 获取参数
+    .action(function(cmd, args) {
+        const handler = cmdHandler[cmd];
+        if (handler) {
+            handler(args);
+        } else {
+            console.log(Printer.fromString("命令错误，输入-h或--help命令查看 🙏"));
+        }
+    })
+
+
+
+// 拿到用户输入的命令 -- 这句话要放在所有设置option的命令后
+prograrm.parse(process.argv);
+
+// console.log(transformed);
