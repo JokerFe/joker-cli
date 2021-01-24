@@ -1,8 +1,16 @@
+/*
+ * @Author: your name
+ * @Date: 2021-01-17 00:18:18
+ * @LastEditTime: 2021-01-24 17:47:11
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /joker-cli/bin/handler/init/answer.js
+ */
 const ora = require('ora');
 const shell = require('shelljs');
 const transformed = require('../../utils/ascii')()
 const downloadGit = require('download-git-repo');
-const templateURL = 'direct:https://github.com/Jokul518/joker-ui.git';
+const templateURL = 'direct:https://github.com/Jokul518/react-ts.git';
 const handler = {
     mkdir: function (dirname) {
         const spinner = ora('⏰ download template......');
@@ -18,7 +26,7 @@ const handler = {
                 console.error('模板下载失败:', err.message);
             } else {
                 // 下载完成后要将package.json中的项目名等信息替换掉
-                shell.sed('-i', 'joker-ui', dirname, `${_path}/package.json`);
+                shell.sed('-i', 'wp5-react-ts', dirname, `${_path}/package.json`);
                 console.log(transformed)
             }
         }).catch((err) => {

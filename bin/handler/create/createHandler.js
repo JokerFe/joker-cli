@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-01-16 21:51:20
+ * @LastEditTime: 2021-01-24 17:46:07
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /joker-cli/bin/handler/init/initHandler.js
+ */
 const inquirer = require('inquirer');
 const prompt = require('./prompt');
 const answer = require('./answer');

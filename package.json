@@ -1,6 +1,6 @@
 {
   "name": "joker-cli",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "joker-cli脚手架",
   "publishConfig": {
     "access": "public"
